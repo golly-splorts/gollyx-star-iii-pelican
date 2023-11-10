@@ -5,8 +5,8 @@ set -x
 
 REMOTE="ghx"
 
-if [ -z "${GOLLYX_STAR_II_PELICAN_HOME}" ]; then
-	echo 'You must set the $GOLLYX_STAR_II_PELICAN_HOME environment variable to proceed.'
+if [ -z "${GOLLYX_STAR_PELICAN_HOME}" ]; then
+	echo 'You must set the $GOLLYX_STAR_PELICAN_HOME environment variable to proceed.'
 	exit 1
 fi
 
@@ -93,8 +93,8 @@ git tag $RELEASE_TAG
 git push --force $REMOTE $PROMOTE_DEST_BRANCH
 git push --tags $REMOTE
 
-if [[ -e "${GOLLYX_STAR_II_PELICAN_HOME}/environment.${PROMOTE_DEST_BRANCH}" ]]; then
-    source "${GOLLYX_STAR_II_PELICAN_HOME}/environment.${PROMOTE_DEST_BRANCH}"
-    make -C "$GOLLYX_STAR_II_PELICAN_HOME" deploy
+if [[ -e "${GOLLYX_STAR_PELICAN_HOME}/environment.${PROMOTE_DEST_BRANCH}" ]]; then
+    source "${GOLLYX_STAR_PELICAN_HOME}/environment.${PROMOTE_DEST_BRANCH}"
+    make -C "$GOLLYX_STAR_PELICAN_HOME" deploy
 fi
 
